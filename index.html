@@ -1,1 +1,60 @@
-sample
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=yes">
+    <script type="text/javascript" src="js/ex_calc.min.js"></script>
+    <title>数式テスト</title>
+
+    <script type="text/JavaScript">
+      function OnAnswerClick () 
+      {
+        ExpForm.InputAnswer.value = ExpForm.axCalc.InputAnswer();
+        ExpForm.Judgment.value = ExpForm.axCalc.Judgment();
+        alert(ExpForm.Judgment.value)
+      }
+      
+      function OnDebug () 
+      {
+        ExpForm.math1._ExCalcCanvas.redraw()
+      }
+    </script>
+  </head>
+
+  <body style="background-color:#F0F8FF">
+    <form action="http://???.cgi" METHOD="post" name="ExpForm" id="ExpForm">
+      <a href="lms.html">lms サンプルへ移動</a>
+      <p>【問題２】</p>
+      <p>次の式を因数分解せよ。</p>
+      <p>(1)
+        <object class="ExDisp" id="math1">
+          <param name="AlnumFont" value="Times New Roman,245" />
+          <param name="OtherFont" value="ＭＳ Ｐゴシック,245" />
+          <param name="Expression" value="x^2-y^2" />
+        </object >
+      </p>
+      
+      <p>
+        <object  class="ExCalc" id="axCalc" width="400" height="50">
+          <param name="AlnumFont" value="Times New Roman,245" />
+          <param name="OtherFont" value="ＭＳ Ｐゴシック,245" />
+          <param name="Enabled1" value="true" />
+          <param name="Answer1" value="(x+y)(x-y)" />
+          <param name="InputAnswer" value="(x+y)(x-y)" />
+          <param name="Rule1" value="0,0,0,0,0" />
+          <param name="BackColor" value="16777215" />
+          <param name="HighSchool" value="true" />
+        </object >
+        
+        <input name="InputAnswer" type="hidden" />
+        <input name="Judgment" type="hidden" />
+      </p>
+      
+      <p>
+        <input type="button" value="解答" onclick="OnAnswerClick()" />
+        <input name="btnSend" type="submit" value="送信" />
+      </p>
+    </form>
+  </body>
+</html>
